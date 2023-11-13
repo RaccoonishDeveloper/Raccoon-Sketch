@@ -5,27 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="scripts.js"></script>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Etch A Sketch</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
   </head>
   <body>
     <div class="wrapper">
       <main class="main">
-        <div class="settings__container">
-          <h1 class="title">Raccoon Sketch</h1>
-          <div class="settings">
-            <div class="color">
-              <input type="color" />
-            </div>
-            <div class="size">
-              <input type="range" />
-            </div>
-            <div class="clear">
-              <button>Clear</button>
+        <div class="sidebar">
+          <div class="title underline">
+            <h1 class="title__text">Raccoon Sketch</h1>
+            <img class="title__icon" src="assets/raccoon.png" />
+          </div>
+          <div class="settings__container">
+            <div class="settings">
+              <div class="color__container">
+                <label for="color" class="color__label"> PAINT COLOR:</label>
+                <input type="color" class="color" name="color" id="color" />
+              </div>
+              <div class="range__container">
+                <label for="range" class="range__label"> BOARD SIZE:</label>
+                <input type="range" class="range" name="range" id="range" />
+              </div>
+              <button class="clear">Clear</button>
             </div>
           </div>
         </div>
-
-        <div class="board__container"></div>
+        <div class="board__container gradient-border" id="board"></div>
       </main>
     </div>
   </body>
