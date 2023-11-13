@@ -79,7 +79,7 @@ h2 {
 .settings {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 }
 .title {
   display: flex;
@@ -105,6 +105,16 @@ h2 {
   justify-content: center;
   align-items: center;
   text-align: center;
+  height: 55px;
+}
+.clear {
+  height: 55px;
+  border-radius: 10px;
+  font-size: 2px;
+  font-weight: bold;
+  color: var(--accent);
+  background-color: hsl(0, 0%, 14%);
+  border: 3px solid hsl(0, 0%, 20%);
 }
 .color,
 .range,
@@ -175,4 +185,23 @@ h2 {
 .square {
   background-color: rgba(255, 255, 255, 0.9);
   border: 1px solid black;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.copyright {
+  font-size: 18px;
+  margin-block: 5px;
+}
+.fa-github:before {
+  color: white;
+  font-size: 24px;
 }
