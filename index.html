@@ -28,7 +28,13 @@
             <div class="settings">
               <div class="color__container">
                 <label for="color" class="color__label"> PAINT COLOR:</label>
-                <input type="color" class="color" name="color" id="color" />
+                <input
+                  type="color"
+                  class="color"
+                  name="color"
+                  id="color"
+                  value="#000000"
+                />
               </div>
               <div class="range__container">
                 <label for="range" class="range__label"> BOARD SIZE:</label>
@@ -41,6 +47,9 @@
                   max="60"
                   value="16"
                 />
+                <label for="range" class="range__label" id="range__specific">
+                  16 X 16
+                </label>
               </div>
               <button class="clear">Clear</button>
             </div>
