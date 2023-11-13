@@ -1,6 +1,6 @@
 window.addEventListener("contextmenu", (e) => e.preventDefault());
 window.onload = function () {
-  const container = document.querySelector(".board__container");
+  const container = document.querySelector(".board");
 
   function createGrid(size) {
     for (let i = 0; i < size * size; i++) {
@@ -8,7 +8,9 @@ window.onload = function () {
       div.classList.add("square");
       container.appendChild(div);
     }
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
   }
 
-  createGrid(16);
+  createGrid(60);
 };

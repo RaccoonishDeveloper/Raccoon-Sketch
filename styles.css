@@ -87,6 +87,7 @@ h2 {
   justify-content: center;
   text-wrap: nowrap;
   gap: 10px;
+  user-select: none;
 }
 .title__text {
   font-size: 32px;
@@ -106,21 +107,27 @@ h2 {
   align-items: center;
   text-align: center;
   height: 55px;
+  user-select: none;
 }
 .clear {
   height: 55px;
   border-radius: 10px;
-  font-size: 2px;
+  font-size: 20px;
   font-weight: bold;
   color: var(--accent);
   background-color: hsl(0, 0%, 14%);
   border: 3px solid hsl(0, 0%, 20%);
+  user-select: none;
 }
 .color,
 .range,
 .clear {
   width: 100%;
   margin: 0;
+  cursor: pointer;
+}
+.range {
+  /* cursor: grab; */
 }
 
 .color__label,
@@ -133,16 +140,27 @@ h2 {
 }
 
 /* ----- BOARD ----- */
+.board {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
+
+.square {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid black;
+  flex: auto;
+}
+
 .board__container {
   --borderWidth: 5px;
   background: #1d1f20;
   position: relative;
   border-radius: var(--borderWidth);
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(16, 1fr);
-  width: 700px;
-  height: 700px;
+  width: 800px;
+  height: 800px;
 }
 
 .board__container:after {
@@ -181,11 +199,6 @@ h2 {
   }
 }
 /* --------------------------- */
-
-.square {
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid black;
-}
 
 .footer {
   position: absolute;

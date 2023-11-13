@@ -32,13 +32,23 @@
               </div>
               <div class="range__container">
                 <label for="range" class="range__label"> BOARD SIZE:</label>
-                <input type="range" class="range" name="range" id="range" />
+                <input
+                  type="range"
+                  class="range"
+                  name="range"
+                  id="range"
+                  min="16"
+                  max="60"
+                  value="16"
+                />
               </div>
               <button class="clear">Clear</button>
             </div>
           </div>
         </div>
-        <div class="board__container gradient-border" id="board"></div>
+        <div class="board__container" id="board">
+          <div class="board"></div>
+        </div>
 
         <footer class="footer">
           <p class="copyright">RaccoonishDeveloper © 2023</p>
