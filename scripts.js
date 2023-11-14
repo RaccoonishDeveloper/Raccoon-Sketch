@@ -1,22 +1,8 @@
+const container = document.querySelector(".board");
+const size = document.querySelector(".range");
+const rangeSpecific = document.querySelector("#range__specific");
+
 window.onload = function () {
-  const container = document.querySelector(".board");
-  const size = document.querySelector(".range");
-  const rangeSpecific = document.querySelector("#range__specific");
-  size.addEventListener("change", function (e) {
-    // Remove all existing squares
-    while (container.firstChild) {
-      container.removeChild(container.firstChild);
-    }
-    // Create a new grid with the selected size
-    createGrid(e.target.value);
-  });
-
-  const color = document.querySelector(".color");
-  paintGrid(color.value);
-  color.addEventListener("change", function (e) {
-    paintGrid(e.target.value);
-  });
-
   function createGrid(size) {
     for (let i = 0; i < size * size; i++) {
       const div = document.createElement("div");
@@ -27,10 +13,22 @@ window.onload = function () {
     container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     rangeSpecific.textContent = `${size} X ${size}`;
   }
+
+  size.addEventListener("change", function (e) {
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+    createGrid(e.target.value);
+  });
   createGrid(16);
 };
 
-function paintGrid(color) {}
+const color = document.querySelector(".color");
+color.addEventListener("change", function (e) {
+  paintGrid(e.target.value);
+});
+paintGrid(color.value);
 
-window.addEventListener("contextmenu", (e) => e.preventDefault());
-// disables contextmenu
+function paintGrid(color) {
+  console.log(color);
+}
