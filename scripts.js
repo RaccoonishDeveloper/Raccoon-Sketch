@@ -33,7 +33,6 @@ window.onload = function () {
   });
   createGrid(16);
   paint();
-  // erase();
 };
 
 clearBtn.addEventListener("click", () => {

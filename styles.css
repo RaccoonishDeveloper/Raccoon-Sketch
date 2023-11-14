@@ -62,7 +62,6 @@ h2 {
   height: fit-content;
   display: flex;
   justify-content: center;
-  /* gap: 50px; */
 }
 .sidebar {
   padding: 30px 20px;
