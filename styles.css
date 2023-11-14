@@ -130,7 +130,48 @@ h2 {
   margin: 0;
   cursor: pointer;
 }
+
 .color {
+  padding: 0;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  background-image: radial-gradient(
+      circle at 100% 100%,
+      transparent -3px,
+      #d50000 -3px,
+      #d50000 1px,
+      transparent 1px
+    ),
+    linear-gradient(to right, #d50000, #304ffe),
+    radial-gradient(
+      circle at 0% 100%,
+      transparent -3px,
+      #304ffe -3px,
+      #304ffe 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, #304ffe, #00bfa5),
+    radial-gradient(
+      circle at 0% 0%,
+      transparent -3px,
+      #00bfa5 -3px,
+      #00bfa5 1px,
+      transparent 1px
+    ),
+    linear-gradient(to left, #00bfa5, #ffd600),
+    radial-gradient(
+      circle at 100% 0%,
+      transparent -3px,
+      #ffd600 -3px,
+      #ffd600 1px,
+      transparent 1px
+    ),
+    linear-gradient(to top, #ffd600, #d50000);
+  background-size: 1px 1px, calc(100% - 0px) 4px, 1px 1px, 4px calc(100% - 0px);
+  background-position: top left, top center, top right, center right,
+    bottom right, bottom center, bottom left, center left;
+  background-repeat: no-repeat;
 }
 
 .color__label,
