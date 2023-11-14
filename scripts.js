@@ -1,7 +1,9 @@
 const container = document.querySelector(".board");
 const size = document.querySelector(".range");
 const rangeSpecific = document.querySelector("#range__specific");
-let isMouseDown = false;
+const clearBtn = document.querySelector(".clear");
+let isLeftMouseDown = false;
+let isRightMouseDown = false;
 
 window.addEventListener("contextmenu", function (e) {
   e.preventDefault();
@@ -30,26 +32,59 @@ window.onload = function () {
     createGrid(e.target.value);
   });
   createGrid(16);
+  paint();
+  // erase();
 };
 
+clearBtn.addEventListener("click", () => {
+  const squares = document.querySelectorAll(".square");
+  squares.forEach((square) => {
+    square.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+  });
+});
+
 const color = document.querySelector(".color");
-container.addEventListener("mousedown", function (e) {
-  e.preventDefault();
-  isMouseDown = true;
-  if (e.target.classList.contains("square")) {
-    e.target.style.backgroundColor = color.value;
-  }
-});
 
-container.addEventListener("mouseup", function () {
-  isMouseDown = false;
-});
-window.addEventListener("mouseup", function () {
-  isMouseDown = false;
-});
+function paint() {
+  container.addEventListener("mousedown", function (e) {
+    e.preventDefault();
+    if (e.button === 0) {
+      isLeftMouseDown = true;
+      if (e.target.classList.contains("square")) {
+        e.target.style.backgroundColor = color.value;
+      }
+    } else if (e.button === 2) {
+      isRightMouseDown = true;
+      if (e.target.classList.contains("square")) {
+        e.target.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+      }
+    }
+  });
 
-container.addEventListener("mouseover", function (e) {
-  if (isMouseDown && e.target.classList.contains("square")) {
-    e.target.style.backgroundColor = color.value;
-  }
-});
+  container.addEventListener("mouseup", function (e) {
+    if (e.button === 0) {
+      isLeftMouseDown = false;
+    }
+    if (e.button === 2) {
+      isRightMouseDown = false;
+    }
+  });
+
+  window.addEventListener("mouseup", function (e) {
+    if (e.button === 0) {
+      isLeftMouseDown = false;
+    }
+    if (e.button === 2) {
+      isRightMouseDown = false;
+    }
+  });
+
+  container.addEventListener("mouseover", function (e) {
+    if (isLeftMouseDown && e.target.classList.contains("square")) {
+      e.target.style.backgroundColor = color.value;
+    } else if (isRightMouseDown && e.target.classList.contains("square")) {
+      // Modify this line
+      e.target.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+    }
+  });
+}
