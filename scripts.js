@@ -1,6 +1,11 @@
 const container = document.querySelector(".board");
 const size = document.querySelector(".range");
 const rangeSpecific = document.querySelector("#range__specific");
+let isMouseDown = false;
+
+window.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
 
 window.onload = function () {
   function createGrid(size) {
@@ -14,6 +19,10 @@ window.onload = function () {
     rangeSpecific.textContent = `${size} X ${size}`;
   }
 
+  size.addEventListener("input", function (e) {
+    rangeSpecific.textContent = `${e.target.value} X ${e.target.value}`;
+  });
+
   size.addEventListener("change", function (e) {
     while (container.firstChild) {
       container.removeChild(container.firstChild);
@@ -24,11 +33,23 @@ window.onload = function () {
 };
 
 const color = document.querySelector(".color");
-color.addEventListener("change", function (e) {
-  paintGrid(e.target.value);
+container.addEventListener("mousedown", function (e) {
+  e.preventDefault();
+  isMouseDown = true;
+  if (e.target.classList.contains("square")) {
+    e.target.style.backgroundColor = color.value;
+  }
 });
-paintGrid(color.value);
 
-function paintGrid(color) {
-  console.log(color);
-}
+container.addEventListener("mouseup", function () {
+  isMouseDown = false;
+});
+window.addEventListener("mouseup", function () {
+  isMouseDown = false;
+});
+
+container.addEventListener("mouseover", function (e) {
+  if (isMouseDown && e.target.classList.contains("square")) {
+    e.target.style.backgroundColor = color.value;
+  }
+});

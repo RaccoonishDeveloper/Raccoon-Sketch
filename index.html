@@ -17,55 +17,56 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
   </head>
   <body>
-    <div class="wrapper">
-      <main class="main">
-        <div class="sidebar">
-          <div class="title underline">
-            <h1 class="title__text">Raccoon Sketch</h1>
-            <img class="title__icon" src="assets/favicon.png" />
-          </div>
-          <div class="settings__container">
-            <div class="settings">
-              <div class="color__container">
-                <label for="color" class="color__label"> PAINT COLOR:</label>
-                <input
-                  type="color"
-                  class="color"
-                  name="color"
-                  id="color"
-                  value="#000000"
-                />
+    <div class="container">
+      <div class="wrapper">
+        <main class="main">
+          <div class="sidebar">
+            <div class="title underline">
+              <h1 class="title__text">Raccoon Sketch</h1>
+              <img class="title__icon" src="assets/favicon.png" />
+            </div>
+            <div class="settings__container">
+              <div class="settings">
+                <div class="color__container">
+                  <label for="color" class="color__label"> PAINT COLOR:</label>
+                  <input
+                    type="color"
+                    class="color"
+                    name="color"
+                    id="color"
+                    value="#000000"
+                  />
+                </div>
+                <div class="range__container">
+                  <label for="range" class="range__label"> BOARD SIZE:</label>
+                  <input
+                    type="range"
+                    class="range"
+                    name="range"
+                    id="range"
+                    min="16"
+                    max="60"
+                    value="16"
+                  />
+                  <label for="range" class="range__label" id="range__specific">
+                    16 X 16
+                  </label>
+                </div>
+                <button class="clear">Clear</button>
               </div>
-              <div class="range__container">
-                <label for="range" class="range__label"> BOARD SIZE:</label>
-                <input
-                  type="range"
-                  class="range"
-                  name="range"
-                  id="range"
-                  min="16"
-                  max="60"
-                  value="16"
-                />
-                <label for="range" class="range__label" id="range__specific">
-                  16 X 16
-                </label>
-              </div>
-              <button class="clear">Clear</button>
             </div>
           </div>
-        </div>
-        <div class="board__container" id="board">
-          <div class="board"></div>
-        </div>
-
-        <footer class="footer">
-          <p class="copyright">RaccoonishDeveloper © 2023</p>
-          <a href="https://github.com/RaccoonishDeveloper" target="_blank">
-            <i class="fab fa-github" aria-hidden="true"></i>
-          </a>
-        </footer>
-      </main>
+          <div class="board__container" id="board">
+            <div class="board"></div>
+          </div>
+        </main>
+      </div>
+      <footer class="footer">
+        <p class="copyright">RaccoonishDeveloper © 2023</p>
+        <a href="https://github.com/RaccoonishDeveloper" target="_blank">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </footer>
     </div>
   </body>
 </html>
